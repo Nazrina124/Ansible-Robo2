@@ -1,0 +1,32 @@
+- name: Run shipping container
+  containers.podman.podman_container::
+    name: shipping
+    image: public.ecr.aws/w8x4g9h7/roboshop-v3/shipping
+    state: started
+    ports:
+        - "8080:8080"
+    env:
+     CART_ENDPOINT: "{{ secrets.CART_ENDPOINT }}"
+     DB_HOST: "{{ secrets.DB_HOST }}"                                 ###########mysql.naifah.online
+
+
+- name: Run schmea container
+  loop:
+    - app_user
+    - schema
+    - master_data
+  containers.podman.podman_container::
+    name: {{ item }}
+    image: public.ecr.aws/w8x4g9h7/roboshop-v3/schema-load
+    state: started
+    ports:
+        - "8080:8080"
+    env:
+     DB_TYPE: "{{ secrets.DB_TYPE }}"                                 ### mysql.dev.naifah.online
+     APP_GIT_URL: "{{ secrets.APP_GIT_URL }}"                                  ###https://github.com/roboshop-devops-project-v3/shipping
+     DB_HOST: "{{ secrets.DB_HOST }}"                                     ###   mysql.naifah.online
+     DB_USER: "{{ secrets.MYSL_ROOT_USER }}"                                  ### root
+     DB_PASS: "{{ secrets.MYSL_ROOT_PASSWORD }}"                              ###          RoboShop@1   already declared inn vault
+     SCHEMA_FILE: "db/{{ item }}.sql"                            
+    
+

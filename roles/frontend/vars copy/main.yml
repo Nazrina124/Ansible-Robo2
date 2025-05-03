@@ -1,0 +1,4 @@
+
+component: frontend
+
+secrets: "{{ lookup('hashi_vault', 'secret=roboshop-{{env}}/data/frontend token={{vault_token}} url=https://vault.naifah.online:8200 validate_certs=False')}}"

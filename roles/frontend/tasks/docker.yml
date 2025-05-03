@@ -1,0 +1,23 @@
+- name: Run Frontend Container
+  containers.podman.podman_container:
+    name: frontend
+    image: public.ecr.aws/w8x4g9h7/roboshop-v3/frontend
+    state: started
+    ports:
+      - "80:80"
+    env:
+      CATALOGUE_HOST: "{{ secrets.CATALOGUE_HOST }}"   #####catalogue.dev.naifah.online
+      CATALOGUE_PORT: "{{ secrets.CATALOGUE_PORT }}"    #### 80
+      USER_HOST: "{{ secrets.USER_HOST }}"         #####user.dev.naifah.online
+      USER_PORT: "{{ secrets.USER_PORT }}"    ###80
+      CART_HOST: "{{ secrets.CART_HOST }}"         #####cart.dev.naifah.online
+      CART_PORT: "{{ secrets.CART_PORT }}"      ###80
+      SHIPPING_HOST: "{{ secrets.SHIPPING_HOST }}"    #####shipping.dev.naifah.online
+      SHIPPING_PORT: "{{ secrets.SHIPPING_PORT }}"    #### 80
+      PAYMENT_HOST: "{{ secrets.PAYMENT_HOST }}"     #####payment.dev.naifah.online
+      PAYMENT_PORT: "{{ secrets.PAYMENT_PORT }}"     ### 80
+
+
+
+
+
