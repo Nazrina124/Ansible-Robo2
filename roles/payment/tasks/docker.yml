@@ -1,5 +1,5 @@
 - name: Run payment container
-  containers.podman.podman_container::
+  containers.podman.podman_container:
     name: payment
     image: public.ecr.aws/w8x4g9h7/roboshop-v3/payment
     state: started

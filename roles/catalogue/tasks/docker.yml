@@ -1,5 +1,5 @@
 - name: Run Catalogue Container
-  containers.podman.podman_container::
+  containers.podman.podman_container:
     name: catalogue
     image: public.ecr.aws/w8x4g9h7/roboshop-v3/catalogue
     state: started
@@ -13,7 +13,7 @@
 
 
 - name: Run master data
-  containers.podman.podman_container::
+  containers.podman.podman_container:
     name: master_data
     image: public.ecr.aws/w8x4g9h7/roboshop-v3/schema-load
     state: started
