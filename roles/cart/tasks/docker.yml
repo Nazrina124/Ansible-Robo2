@@ -1,5 +1,5 @@
 - name: Run cart container
-  containers.podman.podman_container::
+  containers.podman.podman_container:
     name: cart
     image: public.ecr.aws/w8x4g9h7/roboshop-v3/cart
     state: started
