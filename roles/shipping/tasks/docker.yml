@@ -27,6 +27,5 @@
      DB_HOST: "{{ secrets.DB_HOST }}"                                     ###   mysql.naifah.online
      DB_USER: "{{ secrets.MYSL_ROOT_USER }}"                                  ### root
      DB_PASS: "{{ secrets.MYSQL_ROOT_PASSWORD }}"                              ###          RoboShop@1   already declared inn vault
-     SCHEMA_FILE: "db/{{ item }}.sql"                            
-    
+     SCHEMA_FILE: "db/{{ item }}.sql"                                
 
