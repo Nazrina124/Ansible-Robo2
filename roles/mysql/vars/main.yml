@@ -1,4 +1,4 @@
 
 component: mysql
 
-secrets: "{{ lookup('hashi_vault', 'secret=roboshop-{{env}}/data/mysql token={{vault_token}} url=https://vault.naifah.online:8200 validate_certs=False')}}"
+secrets: "{{ lookup('hashi_vault', 'secret=roboshop-{{env}}/data/mysql token={{vault_token}} url=http://vault.naifah.online:8200')}}"
